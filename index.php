@@ -1,4 +1,15 @@
-<?php require("top.php"); ?>
-<?php require("header.php"); ?>
-<?php require("index-c.php"); ?>
-<?php require("bottom.php"); ?>
+<?php
+$title = "";
+$ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+
+if(!$ajax){
+	include("top.php"); 
+	include("header.php");
+}
+
+include("index-c.php");
+
+if(!$ajax)
+	include("bottom.php");
+
+?>

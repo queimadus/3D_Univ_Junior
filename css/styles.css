@@ -13,6 +13,27 @@ body{
 	background-color: #a4bfdd;
 }
 
+.container{
+	width:1040px;
+	margin:0 auto;
+	position:relative;
+	transition: width, padding 0.3s;
+}
+
+.container .one-third-div{
+	width: 33.33%;
+	float:left;
+	padding:5px 1%;
+	box-sizing:border-box;
+}
+
+.container .one-forth-div{
+	width: 25%;
+	float:left;
+	padding:5px 1%;
+	box-sizing:border-box;
+}
+
 header{
 	height: 50px;
 	z-index: 1000;
@@ -22,13 +43,6 @@ header{
 	width: 100%;
 	background: #f7f7f7;
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-}
-
-.container{
-	width:1040px;
-	margin:0 auto;
-	position:relative;
-	transition: width, padding 0.3s;
 }
 
 .header-logo{
@@ -107,11 +121,27 @@ h1{
 
 .hero h1{
 	text-transform: uppercase;
-	background-color: rgba(202, 10, 19, 0.7);
+	background-color: white;
 	margin: 30px 0px;
 	color: white;
 	padding: 11px 11px 11px 55px;
 	display: inline-block;
+}
+
+.hero.main-hero h1{
+	color:#555;
+}
+
+.hero.guiao-hero h1{
+	background-color: rgba(202, 10, 19, 0.7);
+}
+
+.hero.trabalhos-hero h1{
+	background-color: rgba(147, 196, 15, 0.7);
+}
+
+.hero.contactos-hero h1{
+	background-color: rgba(12, 107, 181, 0.7);
 }
 
 .hero{
@@ -122,16 +152,17 @@ h1{
 	position:relative;
 }
 
+.hero.main-hero{
+	height: 500px;
+}
+
+.hero.contactos-hero{
+
+}
+
 .hero.guiao-hero{
 	background-image:url("../img/guiao-hero.jpg");
 	background-position: center;
-}
-
-.container .one-third-div{
-	width: 33.33%;
-	float:left;
-	padding:5px 1%;
-	box-sizing:border-box;
 }
 
 .guiao-right{
@@ -171,10 +202,23 @@ h1{
 	top: 15px;
 }
 
+.tcenter{
+	text-align:center;
+}
+
 .subtitle{
 	font-size:26px;
 }
 
+
+.photo{
+	width:100%;
+	max-width:240px;
+}
+
+.photo-name{
+	text-align:center;
+}
 
 @media (max-width: 1040px){
 	.container{
@@ -197,6 +241,11 @@ h1{
 	.container .one-third-div{
 		width:100%;
 		margin-bottom:20px;
+	}
+
+	.container .one-forth-div{
+		width:50%;
+		margin-bottom:10px;
 	}
 }
 
@@ -236,6 +285,11 @@ h1{
 
 	.container{
 		float:left;
+	}
+
+	.container .one-forth-div{
+		width:100%;
+		margin-bottom:10px;
 	}
 
 }
