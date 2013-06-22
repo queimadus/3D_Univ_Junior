@@ -1,0 +1,241 @@
+html,body{
+	font-family: "Rooney-Regular", "arial";
+}
+html, button, input, select, textarea, p {
+	color: #444;
+}
+
+a{
+	text-decoration:none;
+}
+
+body{
+	background-color: #a4bfdd;
+}
+
+header{
+	height: 50px;
+	z-index: 1000;
+	%position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background: #f7f7f7;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.container{
+	width:1040px;
+	margin:0 auto;
+	position:relative;
+	transition: width, padding 0.3s;
+}
+
+.header-logo{
+	float: left;
+	display: inline;
+	margin-top: 5px;
+	height: 40px;
+	background-image: url("../img/ujr_logo.png");
+	background-repeat: no-repeat;
+	width: 167px;
+	background-size: 167px;
+}
+
+.header-logo img{
+	height:40px;
+}
+
+
+header ul{
+	list-style-type:none;
+	float: right;
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+header ul li{
+	float:left;
+	display:inline;
+	position:relative;
+}
+
+header ul li a{
+	display: block;
+	padding: 16px 25px;
+	box-sizing: border-box;
+	height: 50px;
+	text-decoration: none;
+	color: white;
+	font-family: BrandonGrotesque-Black;
+	text-transform: uppercase;
+	font-size: 15px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	transition: padding 0.3s;
+}
+
+header ul li:nth-child(1){
+	%background-color:rgba(202, 10, 19, 0.7);
+	background-image: -webkit-linear-gradient(bottom, rgba(202, 10, 19, 0.73) , rgba(202, 10, 19, 0.7));
+}
+
+header ul li:nth-child(2){
+	%background-color:rgba(147, 196, 15, 0.7);
+	background-image: -webkit-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
+}
+
+header ul li:nth-child(3){
+	%background-color:rgba(12, 107, 181, 0.7);
+	background-image: -webkit-linear-gradient(bottom, rgba(12, 107, 181, 0.73) , rgba(12, 107, 181, 0.7));
+}
+
+header ul li:nth-child(4){
+	%background-color:rgba(220, 108, 9, 0.7);
+	background-image: -webkit-linear-gradient(bottom, rgba(220, 108, 9, 0.73) , rgba(220, 108, 9, 0.7));
+}
+
+.content{
+	%margin-bottom:10px;
+}
+
+h1{
+	font-size: 40px;
+	font-weight: bold;
+	font-family: BrandonGrotesque-bold;
+}
+
+.hero h1{
+	text-transform: uppercase;
+	background-color: rgba(202, 10, 19, 0.7);
+	margin: 30px 0px;
+	color: white;
+	padding: 11px 11px 11px 55px;
+	display: inline-block;
+}
+
+.hero{
+	width: 100%;
+	height: 350px;
+	background-color: #fbfbfb;
+	margin: 20px 0px;
+	position:relative;
+}
+
+.hero.guiao-hero{
+	background-image:url("../img/guiao-hero.jpg");
+	background-position: center;
+}
+
+.container .one-third-div{
+	width: 33.33%;
+	float:left;
+	padding:5px 1%;
+	box-sizing:border-box;
+}
+
+.guiao-right{
+	margin-top:20px;
+	float:right;
+}
+
+.hero .download-btn{
+	position:absolute;
+	bottom:15px;
+	right:15px;
+}
+
+.download-btn{
+	padding: 14px 19px;
+	background-color: #27ae60;
+	display: inline-block;
+	position: relative;
+	color: white;
+	font-family: BrandonGrotesque-Black;
+	text-transform: uppercase;
+	font-size: 18px;
+	white-space: nowrap;
+	vertical-align: top;
+	padding-left: 43px;
+	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);
+}
+
+.download-btn:before{
+	width: 20px;
+	background: url("../img/download.png") no-repeat;
+	height: 20px;
+	content: "";
+	background-size: 20px;
+	position: absolute;
+	left: 16px;
+	top: 15px;
+}
+
+.subtitle{
+	font-size:26px;
+}
+
+
+@media (max-width: 1040px){
+	.container{
+		width:100%;
+	}
+
+	.content .container{
+		width: 100%;
+		padding: 0 1%;
+		box-sizing: border-box;
+	}
+}
+
+@media (max-width: 791px){
+	header ul li a{
+		padding:16px 10px;
+		transition: padding 0.3s;
+	}
+
+	.container .one-third-div{
+		width:100%;
+		margin-bottom:20px;
+	}
+}
+
+@media (min-width: 556px) and (max-width: 670px){
+	.header-logo{
+		width: 51px;
+		background-size: 232px;
+		background-position: -185px 0px;
+		margin-left: 4px;
+	}
+}
+
+@media (max-width: 670px){
+
+}
+
+@media (max-width: 556px){
+	.header-logo{
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		margin-top: 0;
+		background-position: center;
+	}
+
+	header ul{
+		width:100%;
+	} 	
+
+	header ul li{
+		width:100%;
+		text-align:center;
+		display:block;
+	}
+
+	.container{
+		float:left;
+	}
+
+}

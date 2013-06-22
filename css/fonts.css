@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Rooney-Regular';
+	src: url('../fonts/2631C0_0_0.eot');
+	src: url('../fonts/2631C0_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2631C0_0_0.woff') format('woff'), url('../fonts/2631C0_0_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Rooney-Bold';
+	src: url('../fonts/2631C0_1_0.eot');
+	src: url('../fonts/2631C0_1_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2631C0_1_0.woff') format('woff'), url('../fonts/2631C0_1_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BrandonGrotesque-Bold';
+	src: url('../fonts/2631BF_0_0.eot');
+	src: url('../fonts/2631BF_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2631BF_0_0.woff') format('woff'), url('../fonts/2631BF_0_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BrandonGrotesque-Black';
+	src: url('../fonts/2631BF_1_0.eot');
+	src: url('../fonts/2631BF_1_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2631BF_1_0.woff') format('woff'), url('../fonts/2631BF_1_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BrandonGrotesque-Regular';
+	src: url('../fonts/2631BF_2_0.eot');
+	src: url('../fonts/2631BF_2_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2631BF_2_0.woff') format('woff'), url('../fonts/2631BF_2_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
