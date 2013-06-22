@@ -109,6 +109,11 @@ header ul li:nth-child(4){
 	background-image: -webkit-linear-gradient(bottom, rgba(220, 108, 9, 0.73) , rgba(220, 108, 9, 0.7));
 }
 
+.tcenter{
+	text-align:center;
+}
+
+
 .content{
 	%margin-bottom:10px;
 }
@@ -202,23 +207,75 @@ h1{
 	top: 15px;
 }
 
-.tcenter{
-	text-align:center;
-}
-
 .subtitle{
 	font-size:26px;
 }
 
+/* --------- contact photos ------------------------*/
 
 .photo{
 	width:100%;
-	max-width:240px;
+	%max-width:240px;
 }
 
 .photo-name{
+	padding-top:3px;
 	text-align:center;
 }
+
+.photo-name.sub{
+	color: #999;
+	font-size: 14px;
+}
+
+.card-container{
+	background-color: #fbfbfb;
+	max-width: 240px;
+	display: inline-table;
+	padding-bottom: 8px;
+	border-radius: 3px;
+	overflow: hidden;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------- projects ---------------------------- */
+
+.week-container{
+	padding: 5px;
+	height:260px;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.week-title{
+	padding: 6px 18px;
+	font-weight: 700;
+	display: inline-block;
+	float: left;
+	clear: both;
+	background-color: rgba(147, 196, 15, 0.7);
+	margin-top: 9px;
+	margin-left: -5px;
+	padding-right:35px;
+}
+
+.week-title.sub{
+	font-weight: 100;
+	font-size: 14px;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+#weeks a{
+	display:block;
+	color:#444;
+}
+
+#weeks a:hover .week-title{
+	text-decoration:underline;
+}
+
+/*----------------- media queries -----------------------*/
 
 @media (max-width: 1040px){
 	.container{
@@ -290,6 +347,15 @@ h1{
 	.container .one-forth-div{
 		width:100%;
 		margin-bottom:10px;
+	}
+
+	.card-container{
+		width:240px;
+	}
+
+	.week-container{
+		width:100%;
+		height:85px;
 	}
 
 }

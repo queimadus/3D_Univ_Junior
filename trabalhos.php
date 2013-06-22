@@ -1,15 +1,16 @@
 <?php
 $title = "Trabalhos - ";
-$ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+define('XHR', (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
 
-if(!$ajax){
+
+if(!XHR){
 	require("top.php"); 
 	require("header.php");
 }
 
 require("trabalhos-c.php");
 
-if(!$ajax)
+if(!XHR)
 	require("bottom.php");
 
 ?>

@@ -1,15 +1,15 @@
 <?php
 $title = "Contactos - ";
-$ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+define('XHR', (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
 
-if(!$ajax){
+if(!XHR){
 	include("top.php"); 
 	include("header.php");
 }
 
 include("contactos-c.php");
 
-if(!$ajax)
+if(!XHR)
 	include("bottom.php");
 
 ?>
