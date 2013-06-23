@@ -24,6 +24,11 @@ h1 {
 	font-family: BrandonGrotesque-bold;
 }
 
+.feup-logo{
+	float:right;
+	width: 200px;
+}
+
 /* --------------grid system --------------------*/
 .container {
 	width: 1040px;
@@ -220,8 +225,19 @@ header ul li:nth-child(4) {
 	height: 500px;
 }
 
+.hero.trabalhos-hero{
+	background-image: url("../img/bridge_1.png");
+	%background-size: 1040px;
+	%background-position-y: -50px;
+}
+
 .hero.guiao-hero {
-	background-image: url("../img/guiao-hero.jpg");
+	background-image: url("../img/train_1.png");
+	background-position: center;
+}
+
+.hero.contactos-hero {
+	background-image: url("../img/plane_1.png");
 	background-position: center;
 }
 
@@ -567,7 +583,7 @@ a:last-child>.week-item {
 
 }
 
-@media (min-width: 556px) and (max-width: 670px) {
+@media (min-width: 568px) and (max-width: 675px) {
 	.header-logo {
 	width: 56px;
 
@@ -581,7 +597,7 @@ a:last-child>.week-item {
 
 }
 
-@media (max-width: 556px) {
+@media (max-width: 568px) {
 	.header-logo {
 	display: block;
 	width: 100%;

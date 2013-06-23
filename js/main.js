@@ -44,7 +44,7 @@ function weeks_click(event){
 		$(this).removeClass("active");
 		days.removeClass("active");
 		filter_projects(null,null);
-		push_state("/trabalhos","/trabalhos");
+		push_state("/~ujr3d13/trabalhos.php","/~ujr3d13/trabalhos.php");
 	}
 	else
 	{
@@ -65,7 +65,7 @@ function days_click(event){
 		$(this).removeClass("active");
 		var week_nr = $(this).data("week");
 		filter_projects(week_nr,null);
-		push_state("","/trabalhos/semana"+week_nr);
+		push_state("","/~ujr3d13/trabalhos.php?semana="+week_nr);
 	}
 	else
 	{
@@ -87,7 +87,7 @@ function populate_days(week){
 	week_nr = week.data("week");
 
 	for(var i=0; i<5; ++i){
-		$(days[i]).attr("href","/trabalhos/semana"+week_nr+"/dia"+day);
+		$(days[i]).attr("href","/~ujr3d13/trabalhos.php?semana="+week_nr+"&dia="+day);
 		$(days[i]).attr("data-week",week_nr);
 		$(days[i]).attr("data-day",day);
 		$(days[i]).children(".week-subname").text((day++));
