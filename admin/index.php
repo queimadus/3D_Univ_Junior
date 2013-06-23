@@ -28,9 +28,20 @@
 		if(strcasecmp($_POST['action_type'], 'add_project') == 0) {
 			foreach($_FILES as $id => $file) {
 				if($file['error'] == UPLOAD_ERR_OK) {
-					// Save file
-					$name = generate_file_name($id) . '.zip';
-					move_uploaded_file($file['tmp_name'], '../files/' . $name);
+					// Save image file
+					if(preg_match('/_image$/', $id))
+					{
+						preg_match('/^\d+/', $id, $match);
+						$id = $match[0];
+						$name = generate_file_name($id) . '.jpg';
+						move_uploaded_file($file['tmp_name'], '../images/' . $name);
+					}
+					// Save project file
+					else
+					{
+						$name = generate_file_name($id) . '.zip';
+						move_uploaded_file($file['tmp_name'], '../files/' . $name);
+					}
 					$db->queryExec("UPDATE Student SET submited = 'true' WHERE studentID = {$id}");
 				}
 			}
@@ -109,17 +120,27 @@
 					if($week) {
 						echo '<table class="student_table">';
 						$day = '';
+						$background = 0;
 						foreach($week as $student) {
 							if(strcasecmp($day, $student['day'])) {
-								echo '<tr><td colspan=3><h3 class = "day">' . $student['day'] . '</h2></td></tr>';
+								echo '<tr><td colspan=4><h3 class = "day">' . $student['day'] . '</h2></td></tr>';
 								$day = $student['day'];
 							}
-							echo '<tr><td class="name">' . stripslashes($student['studentName']) . '</td>';
-							echo '<td class="file"><input class="input_file" type="file" name="' . $student['studentID'] . '"/></td>';
-							if(strcasecmp($student['submited'], 'true') == 0)
-								echo '<td class="submited">Submited</td></tr>';
+
+							// Change row background
+							$background++;
+							if($background & 1)
+								$color_class = "odd_color";
 							else
-								echo '<td class="not_submited">Not submited</td></tr>';
+								$color_class = "even_color";
+
+							echo '<tr class="' . $color_class . '"><td class="name" rowspan="2">' . stripslashes($student['studentName']) . '</td>';
+							echo '<td><label class="form_label">PROJECTO</label></td><td class="file"><input class="input_file" type="file" name="' . $student['studentID'] . '"/></td>';
+							if(strcasecmp($student['submited'], 'true') == 0)
+								echo '<td class="submited" rowspan="2">Submited</td></tr>';
+							else
+								echo '<td class="not_submited" rowspan="2">Not submited</td></tr>';
+							echo '<tr class="' . $color_class . '"><td><label class="form_label">IMAGEM</label></td><td class="file"><input class="input_file" type="file" name="' . $student['studentID'] . '_image"/></td></tr>';
 						}
 						echo '</table>';
 					} else {
