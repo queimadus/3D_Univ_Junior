@@ -19,5 +19,6 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/styles.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/prefixfree.min.js"></script>
     </head>
     <body>
