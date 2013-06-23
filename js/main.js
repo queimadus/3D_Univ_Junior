@@ -21,7 +21,7 @@ function click_handler(){
 	var href = $(this).attr('href');
 	history.pushState(null, href, href);
 	change_page(href);
-	return event.preventDefault();
+	return false;
 }
 
 function weeks_click(){
@@ -44,7 +44,7 @@ function weeks_click(){
 		history.pushState(null, $(this).attr("href"), $(this).attr("href"));
 	}
 	
-	return event.preventDefault();
+	return false;
 }
 
 function days_click(){
@@ -64,7 +64,7 @@ function days_click(){
 	//history.pushState(null, href, href);
 
 	
-	return event.preventDefault();
+	return false;
 }
 
 function populate_days(week){
@@ -102,7 +102,7 @@ function filter_projects(week,day){
 
 function change_page(href){
 	$.get(href, function(data) {
-		console.log(event);
+		//console.log(event);
 		var title = href.split("/")[1];
 		title+=title==""?"":" - ";
 		document.title = capitalize(title) + "Modelação 3D de objectos :: UJr 2013"; 
