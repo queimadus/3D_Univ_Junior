@@ -102,7 +102,10 @@ EOD;
 							$pre_path = '/~ujr3d13/';
 							$date = explode('-', $student['day']);
 							$day = intval($date[0]);
-							project($name, $student['studentName'], $pre_path . 'files/' . $filename . '.zip', $pre_path . 'images/' . $filename . '.jpg', $i, $day, false);
+							if(file_exists('./images/' .$filename))
+								project($name, $student['studentName'], $pre_path . 'files/' . $filename . '.zip', $pre_path . 'images/' . $filename . '.jpg', $i, $day, false);
+							else
+								project($name, $student['studentName'], $pre_path . 'files/' . $filename . '.zip', $pre_path . 'images/default.jpg', $i, $day, false);
 						}
 					}
 				} 
