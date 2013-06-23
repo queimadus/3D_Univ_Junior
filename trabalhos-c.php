@@ -1,4 +1,7 @@
 <?php
+	include_once('../database/creds.php');
+	include_once('./database/consult.php');
+
 	function project($name, $full_name, $url,$image,$week,$day,$filtered){
 		$filter_class="";
 		if($filtered)
@@ -84,7 +87,26 @@ EOD;
 
 	<div class="container">
 		<div id="projects">
-			<?php for($i=0; $i<20; ++$i) project("Joao Pedro","Joao Qualquer coisa Nome Pedro","http://www.google.com","/img/thumb_test.jpg",$i%3+1,$i%30+1,false); ?>
+			<?php
+				init_database('../database/');
+				for($i = 1; $i <= 4; $i++) 
+				{
+					$week = get_students_by_week($i);
+					if($week) 
+					{
+						foreach($week as $student) 
+						{
+							$names = explode(' ', $student['studentName']);
+							$name = $names[0] . ' ' . $names[count($names) - 1];
+							$filename = generate_file_name($student['studentID']);
+							$pre_path = '/~ujr3d13/';
+							$date = explode('-', $student['day']);
+							$day = intval($date[0]);
+							project($name, $student['studentName'], $pre_path . 'files/' . $filename . '.zip', $pre_path . 'images/' . $filename . '.jpg', $i, $day, false);
+						}
+					}
+				} 
+			?>
 		</div>
 	</div>
 
