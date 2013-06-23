@@ -9,6 +9,17 @@ $(document).ready(function(){
 	binds();
 });
 
+function push_state(title,url){
+
+	if (history.pushState){
+		history.pushState(null, title, url);
+	}
+	else 
+	{
+		//push not supported
+	}
+}
+
 function binds(){
 	weeks = $("#weeks .week-item");
 	days=   $("#days .week-item");
@@ -17,21 +28,23 @@ function binds(){
 	days.click(days_click);
 }
 
-function click_handler(){
+function click_handler(event){
 	var href = $(this).attr('href');
-	history.pushState(null, href, href);
+	push_state(href,href);
 	change_page(href);
+
+	event.preventDefault();
 	return false;
 }
 
-function weeks_click(){
+function weeks_click(event){
 
 	if($(this).hasClass("active")){
 		day_tabs.hide();
 		$(this).removeClass("active");
 		days.removeClass("active");
 		filter_projects(null,null);
-		history.pushState(null, "/trabalhos", "/trabalhos");
+		push_state("/trabalhos","/trabalhos");
 	}
 	else
 	{
@@ -40,30 +53,30 @@ function weeks_click(){
 		$(this).addClass("active");
 		filter_projects($(this).data("week"),null);
 		populate_days($(this));
-
-		history.pushState(null, $(this).attr("href"), $(this).attr("href"));
+		push_state($(this).attr("href"),$(this).attr("href"));
 	}
 	
+	event.preventDefault();
 	return false;
 }
 
-function days_click(){
+function days_click(event){
 	if($(this).hasClass("active")){
 		$(this).removeClass("active");
 		var week_nr = $(this).data("week");
 		filter_projects(week_nr,null);
-		history.pushState(null, "", "/trabalhos/semana"+week_nr);
+		push_state("","/trabalhos/semana"+week_nr);
 	}
 	else
 	{
 		days.removeClass("active");
 		$(this).addClass("active");
 		filter_projects($(this).data("week"),$(this).data("day"));
-		history.pushState(null, $(this).attr("href"), $(this).attr("href"));
+		push_state($(this).attr("href"),$(this).attr("href"));
 	}
 	//history.pushState(null, href, href);
 
-	
+	event.preventDefault();
 	return false;
 }
 

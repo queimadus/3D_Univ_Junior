@@ -144,7 +144,7 @@ header ul li a {
 
 header ul li:nth-child(1) {
 	%background-color: rgba(202, 10, 19, 0.7);
-
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CA0A13', endColorstr='#CA0A13');
 	background-image: -webkit-linear-gradient(bottom, rgba(202, 10, 19, 0.73) , rgba(202, 10, 19, 0.7));
 	background-image: -moz-linear-gradient(bottom, rgba(202, 10, 19, 0.73) , rgba(202, 10, 19, 0.7));
 	background-image: -o-linear-gradient(bottom, rgba(202, 10, 19, 0.73) , rgba(202, 10, 19, 0.7));
@@ -154,7 +154,7 @@ header ul li:nth-child(1) {
 
 header ul li:nth-child(2) {
 	%background-color: rgba(147, 196, 15, 0.7);
-
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#93C40F', endColorstr='#93C40F');
 	background-image: -webkit-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
 	background-image: -moz-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
 	background-image: -o-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
@@ -164,7 +164,7 @@ header ul li:nth-child(2) {
 
 header ul li:nth-child(3) {
 	%background-color: rgba(12, 107, 181, 0.7);
-
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0C6BB5', endColorstr='#0C6BB5');
 	background-image: -webkit-linear-gradient(bottom, rgba(12, 107, 181, 0.73) , rgba(12, 107, 181, 0.7));
 	background-image: -moz-linear-gradient(bottom, rgba(12, 107, 181, 0.73) , rgba(12, 107, 181, 0.7));
 	background-image: -o-linear-gradient(bottom, rgba(12, 107, 181, 0.73) , rgba(12, 107, 181, 0.7));
@@ -174,7 +174,7 @@ header ul li:nth-child(3) {
 
 header ul li:nth-child(4) {
 	%background-color: rgba(220, 108, 9, 0.7);
-
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DC6C09', endColorstr='#DC6C09');
 	background-image: -webkit-linear-gradient(bottom, rgba(220, 108, 9, 0.73) , rgba(220, 108, 9, 0.7));
 	background-image: -moz-linear-gradient(bottom, rgba(220, 108, 9, 0.73) , rgba(220, 108, 9, 0.7));
 	background-image: -o-linear-gradient(bottom, rgba(220, 108, 9, 0.73) , rgba(220, 108, 9, 0.7));
@@ -319,7 +319,7 @@ header ul li:nth-child(4) {
 .week-selector {
 	%height: 51px;
 	border: 1px solid rgb(169, 207, 68);
-
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#93C40F', endColorstr='#93C40F');
 	background-image: -webkit-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
 	background-image: -moz-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
 	background-image: -o-linear-gradient(bottom, rgba(147, 196, 15, 0.73) , rgba(147, 196, 15, 0.7));
