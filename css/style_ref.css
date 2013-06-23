@@ -21,23 +21,28 @@ body {
 }
 
 td.name {
-	width: 700px;
+	width: 600px;
+	padding-left: 10px;
 }
 
 td.file {
 	width: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 h3.error {
 	margin: 2px;
 }
 
-.submited {
+td.submited {
 	color: green;
+	padding-left: 10px;
 }
 
-.not_submited {
+td.not_submited {
 	color: red;
+	padding-left: 10px;
 }
 
 .button {
@@ -50,8 +55,18 @@ h3.error {
 	font-size: 100%;
 }
 
+label.form_label {
+	font-size: 12px;
+	width: 60px;
+	padding-left: 5px;
+}
+
 #file_div .button {
 	margin: 5px;
+}
+
+.odd_color {
+	background:#BFD8E6;
 }
 
 .input {
