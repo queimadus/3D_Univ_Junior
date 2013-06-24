@@ -1,27 +1,26 @@
-$(document).ready(function() {
+function initAnimation() {
 
 	// Fallback image style
-	var style = "background: white url('img/fallback.jpg') no-repeat center center fixed;";
-	style += "-webkit-background-size: cover;";
-	style += "-moz-background-size: cover;";
-	style += "-o-background-size: cover;";
-	style += "background-size: cover;";
+	var style = "background: white url('img/fallback.png');";
 		
 	if (! Detector.webgl) {
-		$('body').attr('style', style);
+		$('div#canvas').attr('style', style);
 	} else {
 		try {
 			// Canvas definitions
-			var width = window.innerWidth;
-			var height = window.innerHeight;
+			var width = 1040;
+			var height = 400;
 			var canvasSelector = 'div#canvas';
+			if ($(canvasSelector).length <= 0)
+				return;
 
 			// Renderer
 			var renderer = new THREE.WebGLRenderer({antialias: true});
 			renderer.setSize(width, height);
+			$(canvasSelector).remove('canvas');
 			$(canvasSelector).append(renderer.domElement);
 			renderer.shadowMapEnabled = true;
-			renderer.setClearColorHex(0xFFFFFF, 0.0);
+			renderer.setClearColorHex(0x000000, 0.0);
 			renderer.clear();
 		
 			// Scene
@@ -29,66 +28,74 @@ $(document).ready(function() {
 
 			// Camera
 			var camera = new THREE.PerspectiveCamera(20, width/height, 1, 10000);
-			camera.position.z = 600;
-			camera.position.x = 600;
-			camera.position.y = 600;
+			camera.position.z = 0;
+			camera.position.x = 300;
+			camera.position.y = 400;
 			scene.add(camera);
 		
 			// Ambient light
-			var ambientLight = new THREE.AmbientLight(0x555555);
+			var ambientLight = new THREE.AmbientLight(0x585858);
 			scene.add(ambientLight);
 
 			// Spotlight
 			var light = new THREE.SpotLight();
 			light.position.set( 170, 330, -160 );
-			light.castShadow = true;
+			light.castShadow = false;
 			scene.add(light);
 
 			// Materials
-			var wireMat = new THREE.MeshBasicMaterial({color: 0x8C2D19, wireframe: true, transparent: true});
-			var shadowMat = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+			var redWireMat = new THREE.MeshBasicMaterial({color: 0xd84f56, wireframe: true, transparent: true});
+			var greenWireMat = new THREE.MeshBasicMaterial({color: 0xb0d353, wireframe: true, transparent: true});
+			var blueWireMat = new THREE.MeshBasicMaterial({color: 0x5295c9, wireframe: true, transparent: true});
+			var orangeWireMat = new THREE.MeshBasicMaterial({color: 0xe49550, wireframe: true, transparent: true});
+			var redShadowMat = new THREE.MeshLambertMaterial({color: 0x262626});
+			var greenShadowMat = new THREE.MeshLambertMaterial({color: 0x262626});
+			var blueShadowMat = new THREE.MeshLambertMaterial({color: 0x262626});
+			var orangeShadowMat = new THREE.MeshLambertMaterial({color: 0x262626});
 
 			// Cube
-			var cubeWire = new THREE.Mesh(new THREE.CubeGeometry(50,50,50), wireMat);
-			cubeWire.castShadow = true;
-			cubeWire.receiveShadow = true;
+			var cubeWire = new THREE.Mesh(new THREE.CubeGeometry(50,50,50), redWireMat);
+			cubeWire.castShadow = false;
+			cubeWire.receiveShadow = false;
 			scene.add(cubeWire);
-			var cube = new THREE.Mesh(new THREE.CubeGeometry(45,45,45), shadowMat);
-			cube.castShadow = true;
-			cube.receiveShadow = true;
+			var cube = new THREE.Mesh(new THREE.CubeGeometry(45,45,45), redShadowMat);
+			cube.castShadow = false;
+			cube.receiveShadow = false;
 			scene.add(cube);
+			var fastCube = false;
 
 			// Cylinder
-			var cylinderWire = new THREE.Mesh(new THREE.CylinderGeometry(25, 25, 50, 16, 5, false), wireMat);
-			cylinderWire.castShadow = true;
-			cylinderWire.receiveShadow = true;
+			var cylinderWire = new THREE.Mesh(new THREE.CylinderGeometry(25, 25, 50, 16, 5, false), greenWireMat);
+			cylinderWire.castShadow = false;
+			cylinderWire.receiveShadow = false;
 			scene.add(cylinderWire);
-			var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(22.5, 22.5, 45, 16, 5, false), shadowMat);
-			cylinder.castShadow = true;
-			cylinder.receiveShadow = true;
-			scene.add(cylinder);   
+			var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(22.5, 22.5, 45, 16, 5, false), greenShadowMat);
+			cylinder.castShadow = false;
+			cylinder.receiveShadow = false;
+			scene.add(cylinder);
+			var fastCylinder = false;
 		
 			// Cone
-			var coneWire = new THREE.Mesh(new THREE.CylinderGeometry(0, 25, 50, 16, 5, false), wireMat);
-			coneWire.castShadow = true;
-			coneWire.receiveShadow = true;
+			var coneWire = new THREE.Mesh(new THREE.CylinderGeometry(0, 25, 50, 16, 5, false), blueWireMat);
+			coneWire.castShadow = false;
+			coneWire.receiveShadow = false;
 			scene.add(coneWire);  
-			var cone = new THREE.Mesh(new THREE.CylinderGeometry(0, 22.5, 45, 16, 5, false), shadowMat);
-			cone.castShadow = true;
-			cone.receiveShadow = true;
-			scene.add(cone);    
-		
-			// Torus inner
-			var torusInner = new THREE.Mesh(new THREE.TorusGeometry(150, 10, 50, 50), shadowMat);
-			torusInner.castShadow = true;
-			torusInner.receiveShadow = true;
-			scene.add(torusInner);
+			var cone = new THREE.Mesh(new THREE.CylinderGeometry(0, 22.5, 45, 16, 5, false), blueShadowMat);
+			cone.castShadow = false;
+			cone.receiveShadow = false;
+			scene.add(cone);
+			var fastCone = false;
 
-			// Torus outter
-			var torusOutter = new THREE.Mesh(new THREE.TorusGeometry(170, 10, 50, 50), shadowMat);
-			torusOutter.castShadow = true;
-			torusOutter.receiveShadow = true;
-			scene.add(torusOutter);
+			// Octahedron
+			var octaWire = new THREE.Mesh(new THREE.OctahedronGeometry(40, false), orangeWireMat);
+			octaWire.castShadow = false;
+			octaWire.receiveShadow = false;
+			scene.add(octaWire);  
+			var octahedron = new THREE.Mesh(new THREE.OctahedronGeometry(35, false), orangeShadowMat);
+			octahedron.castShadow = false;
+			octahedron.receiveShadow = false;
+			scene.add(octahedron);
+			var fastOctahedron = false;
 
 			// FPS values (counters)
 			var fps = 0;
@@ -105,6 +112,12 @@ $(document).ready(function() {
 			var fpsMinTimeout = 5000;
 			// Time between every FPS sample
 			var fpsSampleTime = 1000;
+
+			// Acceleration variables
+			var timespanToNextAccel = 2500;
+			var timespanToStopAccel = 0;
+			var accelDuration = 2500;
+			var accelTimespanDiff = 2500;
 
 			// Fallback callback
 			function checkFallback() {
@@ -129,42 +142,101 @@ $(document).ready(function() {
 				// FPS calculation
 				var thisFrameFPS = 1000 / ((now=new Date) - lastUpdate);
 				fps += (thisFrameFPS - fps) / fpsFilter;
+				var timespan = now - lastUpdate;
 				lastUpdate = now;
 
-				var posX1 = Math.cos(t/3000)*85; var posX2 = Math.cos(Math.PI*(3/2) + t/3000)*85; var posX3 = Math.cos(Math.PI*(3/4) + t/3000)*85;
-				var posZ1 = Math.sin(t/3000)*85; var posZ2 = Math.sin(Math.PI*(3/2) + t/3000)*85; var posZ3 = Math.sin(Math.PI*(3/4) + t/3000)*85;
-				var rot1 = t/2000;
-				var rot2 = t/2600;
-				var rot3 = t/3600;
-				var torusSep = 1000;
-				var rotTorus = t/(torusSep * 4) + torusSep;
+				var rot1 = t/4000;
+				var rot2 = t/3000;
+				var rot3 = t/5000;
+
+				// Acceleration processing
+				if(fastOctahedron || fastCone || fastCylinder || fastCube) {
+					timespanToStopAccel -= timespan;
+					if(timespanToStopAccel <= 0) {
+						fastCube = false;
+						fastCylinder = false;
+						fastCone = false;
+						fastOctahedron = false;
+						timespanToNextAccel = accelTimespanDiff;
+					}
+				} else if(timespanToNextAccel <= 0) {
+					var chosen = Math.ceil(Math.random()*4);
+					if(chosen == 1)
+						fastCube = true;
+					else if(chosen == 2)
+						fastOctahedron = true;
+					else if(chosen == 3)
+						fastCone = true;
+					else if(chosen == 4)
+						fastCylinder = true;
+					timespanToStopAccel = accelDuration;
+				} else {
+					timespanToNextAccel -= timespan;
+				}
 			
 				// Cube animation
-				cube.position.x = posX1; cubeWire.position.x = posX1;
-				cube.position.z = posZ1; cubeWire.position.z = posZ1;
-				cube.rotation.x = rot1; cubeWire.rotation.x = rot1;
+				if(fastCube) {
+					cube.position.x = 30; cubeWire.position.x = 30;
+					cube.position.z = 150; cubeWire.position.z = 150;
+					cube.rotation.x = rot1 * 25; cubeWire.rotation.x = rot1 * 30;
+					cube.rotation.y = rot3 * 25; cubeWire.rotation.y = rot3 * 30;
+					cube.rotation.z = rot2 * 25; cubeWire.rotation.z = rot2 * 30;
+				}
+				else {
+					cube.position.x = 30; cubeWire.position.x = 30;
+					cube.position.z = 150; cubeWire.position.z = 150;
+					cube.rotation.x = rot1; cubeWire.rotation.x = rot1;
 					cube.rotation.y = rot3; cubeWire.rotation.y = rot3;
-				cube.rotation.z = rot2; cubeWire.rotation.z = rot2;
+					cube.rotation.z = rot2; cubeWire.rotation.z = rot2;
+				}
+
+				// Cylinder animation
+				if(fastCylinder) {
+					cylinder.position.x = 30; cylinderWire.position.x = 30;
+					cylinder.position.z = 50; cylinderWire.position.z = 50;
+					cylinder.rotation.x = -rot2 * 25; cylinderWire.rotation.x = -rot2 * 25;
+					cylinder.rotation.y = -rot1 * 25; cylinderWire.rotation.y = -rot1 * 25;
+					cylinder.rotation.z = rot3 * 25; cylinderWire.rotation.z = rot3 * 25;
+				}
+				else {
+					cylinder.position.x = 30; cylinderWire.position.x = 30;
+					cylinder.position.z = 50; cylinderWire.position.z = 50;
+					cylinder.rotation.x = -rot2; cylinderWire.rotation.x = -rot2;
+					cylinder.rotation.y = -rot1; cylinderWire.rotation.y = -rot1;
+					cylinder.rotation.z = rot3; cylinderWire.rotation.z = rot3;
+				}
 
 				// Cone animation
-				cone.position.x = posX2; coneWire.position.x = posX2;
-				cone.position.z = posZ2; coneWire.position.z = posZ2;
-				cone.rotation.x = rot1; coneWire.rotation.x = rot1;
-				cone.rotation.y = rot2; coneWire.rotation.y = rot2;
-				cone.rotation.z = rot3; coneWire.rotation.z = rot3;
-		
-				// Cylinder animation
-				cylinder.position.x = posX3; cylinderWire.position.x = posX3;
-				cylinder.position.z = posZ3; cylinderWire.position.z = posZ3;
-				cylinder.rotation.x = rot2; cylinderWire.rotation.x = rot2;
-				cylinder.rotation.y = rot1; cylinderWire.rotation.y = rot1;
-				cylinder.rotation.z = rot3; cylinderWire.rotation.z = rot3;
+				if(fastCone) {
+					cone.position.x = 30; coneWire.position.x = 30;
+					cone.position.z = -50; coneWire.position.z = -50;
+					cone.rotation.x = rot1 * 25; coneWire.rotation.x = rot1 * 25;
+					cone.rotation.y = rot2 * 25; coneWire.rotation.y = rot2 * 25;
+					cone.rotation.z = -rot3 * 25; coneWire.rotation.z = -rot3 * 25;
+				}
+				else {
+					cone.position.x = 30; coneWire.position.x = 30;
+					cone.position.z = -50; coneWire.position.z = -50;
+					cone.rotation.x = rot1; coneWire.rotation.x = rot1;
+					cone.rotation.y = rot2; coneWire.rotation.y = rot2;
+					cone.rotation.z = -rot3; coneWire.rotation.z = -rot3;
+				}
 
-				// Over torus animation
-				torusInner.rotation.x = rotTorus;
-				torusInner.rotation.y = rotTorus;
-				torusOutter.rotation.x = rotTorus + torusSep;
-				torusOutter.rotation.y = rotTorus + torusSep;
+				// Octahedron animation
+				if(fastOctahedron) {
+					octahedron.position.x = 30; octaWire.position.x = 30;
+					octahedron.position.z = -150; octaWire.position.z = -150;
+					octahedron.rotation.x = rot2 * 25; octaWire.rotation.x = rot2 * 30;
+					octahedron.rotation.y = -rot1 * 25; octaWire.rotation.y = -rot1 * 30;
+					octahedron.rotation.z = -rot3 * 25; octaWire.rotation.z = -rot3 * 30;
+				}
+				else {
+					octahedron.position.x = 30; octaWire.position.x = 30;
+					octahedron.position.z = -150; octaWire.position.z = -150;
+					octahedron.rotation.x = rot2; octaWire.rotation.x = rot2;
+					octahedron.rotation.y = -rot1; octaWire.rotation.y = -rot1;
+					octahedron.rotation.z = -rot3; octaWire.rotation.z = -rot3;
+				}
 
 				// Scene refresh
 				camera.lookAt(scene.position);
@@ -176,7 +248,7 @@ $(document).ready(function() {
 			setInterval(checkFallback, fpsSampleTime);
 			animate(new Date().getTime());
 		} catch (ex) {
-			$('body').attr('style', style);
+			$('div#canvas').attr('style', style);
 		}
 	}
-});
+}

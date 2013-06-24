@@ -2,21 +2,21 @@
 	<div class="container">
 		<div class="hero guiao-hero">
 			<h1>Guião</h1>
-			<a href="#" class="download-btn"> Descarregar guião</a>
+			<a href="/~ujr3d13/pdf/apontamentos_2013.pdf" class="download-btn"> Descarregar guião</a>
 		</div>
 	</div>
 	<div class="container">
 		<div class="one-third-div">
-			<div class="subtitle">Coiso</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			<div class="subtitle">Aprende</div>
+			<div><p>Já alguma vez pensaste como são criados todos aqueles cenários maravilhosos dos jogos virtuais? Ou como são feitos os filmes de animação digital? O nosso guião ensina-te a modelar objetos tridimensionais a partir do zero.</p></div>
 		</div>
 		<div class="one-third-div">
-			<div class="subtitle">Coiso</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			<div class="subtitle">Simples</div>
+			<div><p>Aprende a modelar objetos complexos utilizando apenas um pequeno conjunto de ferramentas simples. O <i>SketchUp</i> é fácil de usar e perfeito para quem esta pela primeira vez a entrar no mundo da modelação tridimensional.</p></div>
 		</div>
 		<div class="one-third-div">
-			<div class="subtitle">Coiso</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			<div class="subtitle">Poderoso</div>
+			<div><p>A modelação já não tem segredos para ti? Não te deixes enganar pelo aspeto simples do <i>SketchUp</i>. Porque não experimentas adicionar luzes e sombras ao teu modelo, ou manipular a camara ou até adicionar animações? A tua imaginação é o limite…</p></div>
 		</div>
 	</div>
 	<!--

@@ -29,6 +29,10 @@ h1 {
 	width: 200px;
 }
 
+p{
+	line-height: 1.5em;
+}
+
 /* --------------grid system --------------------*/
 .container {
 	width: 1040px;
@@ -222,7 +226,7 @@ header ul li:nth-child(4) {
 }
 
 .hero.main-hero {
-	height: 500px;
+	height: 400px;
 }
 
 .hero.trabalhos-hero{
@@ -538,8 +542,15 @@ a:last-child>.week-item {
 	margin-top: 10px;
 }
 
+.project{
+	transition: width 0.3s ease-in;
+}
+
 .project.filtered {
-	display: none;
+	%display:none;
+	transition: width 0.3s ease-out;
+	width: 0;
+	padding: 0;
 }
 
 /*-----------------media queries -----------------------*/
@@ -646,4 +657,12 @@ header ul li {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+/*----------------- animation -----------------------*/
+
+div#canvas canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
 }

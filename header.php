@@ -1,6 +1,6 @@
 <header>
 	<div class="container">
-		<a href="/~ujr3d13" class="header-logo"></a>
+		<a href="/~ujr3d13/" class="header-logo"></a>
 		<ul>
 			<li><a href="/~ujr3d13/guiao.php">Guião</a></li>
 			<li><a href="/~ujr3d13/trabalhos.php">Trabalhos</a></li>

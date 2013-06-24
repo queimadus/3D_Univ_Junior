@@ -21,7 +21,7 @@
 		<div class="one-forth-div tcenter">
 			
 			<div class="card-container">
-				<img class="photo" src="img/photos/bruno.png">
+				<img class="photo" src="img/photos/diogo.png">
 				<div class="photo-name">
 					Diogo Teixeira
 				</div>

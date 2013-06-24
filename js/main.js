@@ -6,6 +6,7 @@ var day_tabs;
 $(document).ready(function(){
 	var menus = $("header a:not(.external)");
 	menus.click(click_handler);
+	$.ajaxSetup({ cache: false });
 	binds();
 });
 
@@ -24,8 +25,12 @@ function binds(){
 	weeks = $("#weeks .week-item");
 	days=   $("#days .week-item");
 	day_tabs = $("#days");
+	logo = $(".header-logo");
+	days.unbind('click');
+	weeks.unbind('click');
 	weeks.click(weeks_click);
 	days.click(days_click);
+	initAnimation();
 }
 
 function click_handler(event){
@@ -116,7 +121,7 @@ function filter_projects(week,day){
 function change_page(href){
 	$.get(href, function(data) {
 		//console.log(event);
-		var title = href.split("/")[1];
+		var title = href.split("/")[2].split(".")[0];
 		title+=title==""?"":" - ";
 		document.title = capitalize(title) + "Modelação 3D de objectos :: UJr 2013"; 
 		$('.content').replaceWith(data);
